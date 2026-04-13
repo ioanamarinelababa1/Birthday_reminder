@@ -1,0 +1,203 @@
+:root {
+  --primary: #f28ab2;
+  --primary-dark: #d86a93;
+  --white: #ffffff;
+  --gray: #f8f9fa;
+  --text: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffe4ef;
+  /* Efect discret de puncte pe fundal pentru profesionalism */
+  background-image: radial-gradient(#f28ab2 0.5px, #ffe4ef 0.5px);
+  background-size: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
+  padding: 2rem 0;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #c44d7a;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.container {
+  background: var(--white);
+  width: 90vw;
+  max-width: 550px;
+  padding: 2.5rem;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* --- INPUT-URI PROFESIONALE ȘI MARI --- */
+.form input[type="text"], 
+.form input[type="date"], 
+.message-input {
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 1.2rem;
+  border: 2px solid #f0f0f0;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  background: #fdfdfd;
+  box-sizing: border-box;
+}
+
+.form input:focus, .message-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(242, 138, 178, 0.2);
+  background: white;
+}
+
+.message-input {
+  height: 100px;
+  resize: none;
+}
+
+/* --- BUTOANE CU EFECT 3D --- */
+.btn-3d {
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.add-btn {
+  background: var(--primary);
+  color: white;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 0 var(--primary-dark), 0 12px 20px rgba(216, 106, 147, 0.3);
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 var(--primary-dark), 0 15px 25px rgba(216, 106, 147, 0.4);
+}
+
+.add-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--primary-dark);
+}
+
+.remove-btn-3d {
+  background: #ff4d4d;
+  color: white;
+  width: 35px;
+  height: 35px;
+  box-shadow: 0 4px 0 #b33636;
+  font-size: 0.8rem;
+}
+
+.remove-btn-3d:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #b33636;
+}
+
+/* --- CARD PERSOANĂ ȘI ANIMAȚII --- */
+.person-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  padding: 20px;
+  background: var(--gray);
+  margin: 20px 0;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.birthday-active {
+  border: 2px solid var(--primary);
+  background: #fff0f6;
+  animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+  from { transform: rotate(-1deg); }
+  to { transform: rotate(1deg); }
+}
+
+.img-container { position: relative; }
+.img-container img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.confetti-mini {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 30px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.wish-message {
+  font-size: 0.95rem;
+  color: #555;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border-left: 5px solid var(--primary);
+  margin-top: 10px;
+}
+
+.warning-text {
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin: 5px 0;
+}
+
+.file-label-3d {
+  display: block;
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  border: 2px dashed var(--primary);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.btn-clear {
+  background: none;
+  border: none;
+  color: #bbb;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 25px;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
