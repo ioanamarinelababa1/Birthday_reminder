@@ -50,6 +50,15 @@ A modern application built in **React.js** for managing birthdays, with an intui
 * CSS3 (Flexbox, Grid, Custom Animations)
 * LocalStorage API
 
+## Advanced Features
+* **Smart Search**: Integrated a real-time filtering system using JavaScript's `.filter()` and `.includes()` methods, allowing users to find specific contacts instantly as they type.
+* **UX-Driven Empty States**: Replaced blank screens with engaging, user-friendly placeholders that guide new users on how to start.
+* **A11y (Accessibility) Committed**: 
+    - Full keyboard navigation support (Tab indexing).
+    - Descriptive `alt` tags for all images.
+    - Semantic HTML and ARIA labels for screen readers.
+    - High-contrast focus indicators.
+
 ## Security & Robustness
 * **Input Sanitization**: All user inputs are sanitized to prevent XSS (Cross-Site Scripting) attacks, ensuring that malicious scripts cannot be executed within the app.
 * **Data Validation**: 
