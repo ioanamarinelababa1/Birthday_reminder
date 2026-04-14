@@ -258,3 +258,27 @@ body {
   outline: 3px solid #d86a93;
   outline-offset: 2px;
 }
+
+.days-countdown {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666;
+  margin-top: 5px;
+  background: #fdf2f7;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Dacă mai sunt sub 7 zile, facem textul roz intens sau roșu */
+.days-countdown.urgent {
+  color: #d86a93;
+  background: #ffe4ee;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
