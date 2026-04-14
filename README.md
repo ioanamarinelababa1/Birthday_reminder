@@ -45,6 +45,16 @@ A modern application built in **React.js** for managing birthdays, with an intui
 * CSS3 (Flexbox, Grid, Custom Animations)
 * LocalStorage API
 
+## Security & Robustness
+* **Input Sanitization**: All user inputs are sanitized to prevent XSS (Cross-Site Scripting) attacks, ensuring that malicious scripts cannot be executed within the app.
+* **Data Validation**: 
+    * Future date protection (users cannot set birthdays in the future).
+    * Empty state handling for names and dates.
+    * Character limits on names (30) and messages (200) to maintain UI integrity.
+* **Edge Case Handling**: 
+    * File size validation for image uploads (max 2MB) to prevent memory issues.
+    * Trimming of whitespace to avoid accidental empty entries.
+
 ## Installation
 1. Clone the repository.
 2. Run `npm install` to install the dependencies.
