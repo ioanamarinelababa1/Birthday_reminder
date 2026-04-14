@@ -1,0 +1,100 @@
+.listContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.personCard {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.urgent {
+  color: #d86a93;
+  animation: pulse 2s infinite;
+}
+
+.listContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* un plus de profunzime */
+}
+
+.personCard {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
+
+.personCard:hover {
+  background: #fff8fa; /* efect la hover */
+}
+
+.imgContainer img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 1rem;
+  border: 3px solid #f28ab2;
+}
+
+.personInfo h4 {
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.dateText {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.daysCountdown {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #888;
+  margin-top: 5px;
+  background: #fdf2f7;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.urgent {
+  color: #d86a93 !important;
+  background: #ffe4ee;
+  animation: pulse 2s infinite;
+}
+
+.wishMessage {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.removeBtn {
+  margin-left: auto;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.removeBtn:hover {
+  transform: scale(1.1);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
