@@ -4,12 +4,14 @@
 
 Leveraging React's component-based architecture and CSS3 animations, this app delivers a premium user experience. It solves the problem of scattered birthday dates by providing a localized, secure, and visually engaging dashboard for all your social milestones.
 
+## The Mission: Compassion & Passion
+This project was born from a simple but powerful goal: **ensuring that no loved one feels forgotten.** In our fast-paced lives, it's easy to overlook milestone moments. 
+
+I built this tool to bridge that gap—combining my passion for coding with compassion for human connection. It's not just a reminder; it's a way to foster thoughtfulness and celebrate the people who matter most.
+
 ## BirthdayReminder Preview
 
 <img width="1429" height="772" alt="birthday_reminder_preview" src="https://github.com/user-attachments/assets/6ba64bc6-317d-4d96-9a93-2f706a5e22a5" />
-
-## The Story Behind the Project
-This app was born from a mix of **compassion and passion**. In our fast-paced digital lives, it's easy to overlook the milestones of those we care about most. 
 
 I built this not just as a technical exercise in React, but as a solution to a personal challenge: **ensuring that no loved one feels forgotten.** I believe that technology should serve human connection, and this reminder tool is my way of using code to foster more empathy and thoughtfulness in my social circle.
 
@@ -18,19 +20,21 @@ I built this not just as a technical exercise in React, but as a solution to a p
 * **Styling**: CSS3 (Custom animations, Flexbox, Grid, 3D effects)
 * **Storage**: Browser LocalStorage API
 * **Icons/Logo**: SVG & Emoji
+* **Type Checking**: Integrated `Prop-Types` for robust data validation and predictable component communication.
+* **Accessibility (a11y)**: Designed with semantic HTML, ARIA labels, and full keyboard navigation support (Tab indexing).
 
 ## Project Structure
-```text
-setup/
+birthday-reminder/
 ├── public/
-│ └── index.html # HTML entry point and logo/title setup
+│   └── index.html          # HTML entry point, SEO tags, and favicon setup
 ├── src/
-│ ├── App.js # Main logic, State Management and Form
-│ ├── List.js # Component for rendering the list and calculating alerts
-│ ├── indx.css # Professional styles, 3D effects and animations
-│ └── index.js # React application initialization
-├── package.json # Project dependencies and scripts
-└── README.md # Project documentation
+│   ├── App.js              # Main logic: Filtering, Sanitization & LocalStorage
+│   ├── List.js             # UI Component: Rendering logic & Prop-Types validation
+│   ├── List.module.css     # Encapsulated styles (CSS Modules) for the list & cards
+│   ├── indx.css            # Global styles: Layout, Variables, Form & Search Bar
+│   └── index.js            # React application entry point
+├── package.json            # Project dependencies (React, Prop-Types, etc.)
+└── README.md               # Documentation: "The Why", Tech Stack & Roadmap
 
 Currently, the project can be viewed locally by running the npm start command after installing the dependencies.
 
@@ -52,19 +56,12 @@ A modern application built in **React.js** for managing birthdays, with an intui
 * **Interactive Effects**: Confetti-like animations for the celebrants.
 * **Data Persistence**: Integration with `localStorage` to preserve data after refresh.
 * **3D Interface**: Modern design with touch buttons and responsive layout.
-## Technologies used
-* React.js (Hooks: useState, useEffect)
-* CSS3 (Flexbox, Grid, Custom Animations)
-* LocalStorage API
 
-## Advanced Features
-* **Smart Search**: Integrated a real-time filtering system using JavaScript's `.filter()` and `.includes()` methods, allowing users to find specific contacts instantly as they type.
-* **UX-Driven Empty States**: Replaced blank screens with engaging, user-friendly placeholders that guide new users on how to start.
-* **A11y (Accessibility) Committed**: 
-    - Full keyboard navigation support (Tab indexing).
-    - Descriptive `alt` tags for all images.
-    - Semantic HTML and ARIA labels for screen readers.
-    - High-contrast focus indicators.
+## Advenced Features
+- **Real-time Search & Filtering**: Instantly find specific contacts using optimized JavaScript array methods (`.filter`, `.includes`).
+- **Smart Countdown**: A built-in logic that calculates exactly how many days are left until each birthday, highlighting upcoming events (under 7 days) with a "Urgent" visual pulse.
+- **Input Security**: Implemented sanitization to prevent XSS (Cross-Site Scripting) and strict data validation for edge cases (e.g., future dates, empty fields).
+- **Persistence**: Data is saved locally via `LocalStorage`, ensuring your list stays safe even after refreshing the page.
 
 ## Security & Robustness
 * **Input Sanitization**: All user inputs are sanitized to prevent XSS (Cross-Site Scripting) attacks, ensuring that malicious scripts cannot be executed within the app.
@@ -80,5 +77,11 @@ A modern application built in **React.js** for managing birthdays, with an intui
 1. Clone the repository.
 2. Run `npm install` to install the dependencies.
 3. Start the application with `npm start`.
+
+## Roadmap
+- [ ] **Push Notifications**: Browser-level alerts for upcoming birthdays.
+- [ ] **Cloud Sync**: Optional Firebase integration for cross-device access.
+- [ ] **Dark Mode**: A high-contrast theme for better late-night accessibility.
+- [ ] **Export/Import**: Backup data in JSON format.
 
 MIT License - made with dedication.
