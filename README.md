@@ -66,6 +66,7 @@ birthday-reminder/
 │   └── index.js            # React application entry point
 ├── package.json            # Project dependencies (React, Prop-Types, etc.)
 └── README.md               # Documentation: "The Why", Tech Stack & Roadmap
+```
 
 Currently, the project can be viewed locally by running the npm start command after installing the dependencies.
 
