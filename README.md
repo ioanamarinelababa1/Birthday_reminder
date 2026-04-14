@@ -11,7 +11,8 @@ I built this tool to bridge that gap—combining my passion for coding with comp
 
 ## BirthdayReminder Preview
 
-<img width="1429" height="772" alt="birthday_reminder_preview" src="https://github.com/user-attachments/assets/6ba64bc6-317d-4d96-9a93-2f706a5e22a5" />
+<img width="1228" height="734" alt="preview_1" src="https://github.com/user-attachments/assets/097b4868-af8d-422d-be86-8fd03b175eba" /> <img width="1227" height="725" alt="preview_2" src="https://github.com/user-attachments/assets/fb90b75c-0590-4824-b299-beb500cb9fb7" />
+
 
 I built this not just as a technical exercise in React, but as a solution to a personal challenge: **ensuring that no loved one feels forgotten.** I believe that technology should serve human connection, and this reminder tool is my way of using code to foster more empathy and thoughtfulness in my social circle.
 
