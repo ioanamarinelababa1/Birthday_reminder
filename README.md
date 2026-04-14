@@ -23,7 +23,7 @@ I built this not just as a technical exercise in React, but as a solution to a p
 * **Type Checking**: Integrated `Prop-Types` for robust data validation and predictable component communication.
 * **Accessibility (a11y)**: Designed with semantic HTML, ARIA labels, and full keyboard navigation support (Tab indexing).
 
-## 🛠️ Technical Excellence & Architecture
+## Technical Excellence & Architecture
 
 To demonstrate my commitment to writing professional, scalable, and predictable code, I implemented the following advanced React patterns:
 
