@@ -101,7 +101,7 @@ body {
   box-shadow: 0 2px 0 var(--primary-dark);
 }
 
-.remove-btn-3d {
+/*.remove-btn-3d {
   background: #ff4d4d;
   color: white;
   width: 35px;
@@ -109,14 +109,14 @@ body {
   box-shadow: 0 4px 0 #b33636;
   font-size: 0.8rem;
 }
-
+*/
 .remove-btn-3d:active {
   transform: translateY(3px);
   box-shadow: 0 1px 0 #b33636;
 }
 
 /* --- CARD PERSOANĂ ȘI ANIMAȚII --- */
-.person-card {
+/*.person-card {
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 20px;
@@ -126,7 +126,7 @@ body {
   border-radius: 20px;
   align-items: center;
 }
-
+*/
 .birthday-active {
   border: 2px solid var(--primary);
   background: #fff0f6;
@@ -138,7 +138,7 @@ body {
   to { transform: rotate(1deg); }
 }
 
-.img-container { position: relative; }
+/*.img-container { position: relative; }
 .img-container img {
   width: 80px;
   height: 80px;
@@ -147,7 +147,7 @@ body {
   border: 4px solid white;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
+*/
 .confetti-mini {
   position: absolute;
   top: -10px;
@@ -161,7 +161,7 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-.wish-message {
+/*.wish-message {
   font-size: 0.95rem;
   color: #555;
   background: white;
@@ -170,7 +170,7 @@ body {
   border-left: 5px solid var(--primary);
   margin-top: 10px;
 }
-
+*/
 .warning-text {
   color: #e67e22;
   font-weight: bold;
@@ -259,7 +259,7 @@ body {
   outline-offset: 2px;
 }
 
-.days-countdown {
+/*.days-countdown {
   font-size: 0.85rem;
   font-weight: bold;
   color: #666;
@@ -269,14 +269,14 @@ body {
   padding: 2px 8px;
   border-radius: 4px;
 }
-
+*/
 /* Dacă mai sunt sub 7 zile, facem textul roz intens sau roșu */
-.days-countdown.urgent {
+/*.days-countdown.urgent {
   color: #d86a93;
   background: #ffe4ee;
   animation: pulse 2s infinite;
 }
-
+*/
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.02); }
