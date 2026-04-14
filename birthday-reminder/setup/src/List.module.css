@@ -98,3 +98,29 @@
   50% { transform: scale(1.03); }
   100% { transform: scale(1); }
 }
+
+/* List.module.css */
+
+.birthdayActive {
+  border: 2px solid #f28ab2;
+  background: #fff0f6 !important;
+  animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+.confettiMini {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 30px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes shake {
+  from { transform: rotate(-1deg); }
+  to { transform: rotate(1deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

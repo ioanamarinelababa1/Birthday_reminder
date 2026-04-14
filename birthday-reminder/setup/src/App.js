@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import List from './List';
-import './indx.css'; // Stilurile globale (formular, header, search bar general)
+import './indx.css'; 
 
 const getLocalStorage = () => {
   let list = localStorage.getItem('peopleList');
@@ -13,8 +13,6 @@ function App() {
   const [birthDate, setBirthDate] = useState('');
   const [message, setMessage] = useState('');
   const [image, setImage] = useState(null);
-  
-  // State pentru căutare
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -42,8 +40,20 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // --- FIX 1: VALIDARE AN ȘI DATĂ ---
+    const selectedDate = new Date(birthDate);
+    const currentYear = new Date().getFullYear();
+    const selectedYear = selectedDate.getFullYear();
+
     if (!name.trim() || !birthDate) {
       alert('Vă rugăm să introduceți un nume și o dată validă.');
+      return;
+    }
+
+    // Blocăm anii din viitor sau mai vechi de 120 de ani
+    if (selectedYear > currentYear || selectedYear < currentYear - 120) {
+      alert(`Te rugăm să introduci un an valid (între ${currentYear - 120} și ${currentYear}).`);
       return;
     }
 
@@ -56,10 +66,12 @@ function App() {
     };
 
     setPeople([...people, newPerson]);
-    setName(''); setBirthDate(''); setMessage(''); setImage(null);
+    setName(''); 
+    setBirthDate(''); 
+    setMessage(''); 
+    setImage(null);
   };
 
-  // Logică de filtrare pentru Search Bar
   const filteredPeople = people.filter((person) =>
     person.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -72,7 +84,6 @@ function App() {
       </header>
       
       <section className='container'>
-        {/* Formular de adăugare */}
         <form className="form" onSubmit={handleSubmit} aria-label="Formular adăugare zi de naștere">
           <input 
             type="text" 
@@ -104,7 +115,6 @@ function App() {
 
         <hr className="divider" />
 
-        {/* Search Bar - apare doar dacă avem oameni în listă */}
         {people.length > 0 && (
           <div className="search-container">
             <input 
@@ -118,17 +128,19 @@ function App() {
           </div>
         )}
 
-        {/* Verificare Empty State */}
         {people.length === 0 ? (
           <div className="empty-state">
             <div className="empty-icon">✨</div>
-            <p>Momentan nu ai adăugat niciun sărbătorit. Începe prin a completa formularul de mai sus!</p>
+            <p>Momentan nu ai adăugat niciun sărbătorit.</p>
           </div>
         ) : (
           <>
-            <List people={filteredPeople} removePerson={(id) => setPeople(people.filter(p => p.id !== id))} />
+            <List 
+              people={filteredPeople} 
+              removePerson={(id) => setPeople(people.filter(p => p.id !== id))} 
+            />
             {filteredPeople.length === 0 && searchTerm && (
-              <p className="no-results">Nu am găsit nicio persoană care să corespundă căutării.</p>
+              <p className="no-results">Nu am găsit nicio persoană.</p>
             )}
           </>
         )}
