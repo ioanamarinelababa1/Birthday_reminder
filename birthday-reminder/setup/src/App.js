@@ -12,25 +12,25 @@ function App() {
   const [birthDate, setBirthDate] = useState('');
   const [message, setMessage] = useState('');
   const [image, setImage] = useState(null);
+  
+  // State pentru căutare
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     localStorage.setItem('peopleList', JSON.stringify(people));
   }, [people]);
 
-  // Validare și curățare text (Sanitizare simplă)
   const sanitizeInput = (text) => {
     const temp = document.createElement('div');
     temp.textContent = text;
-    return temp.innerHTML; // Transformă caracterele speciale în entități HTML (ex: < devine &lt;)
+    return temp.innerHTML;
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Edge Case: Verificăm dimensiunea fișierului (max 2MB)
       if (file.size > 2 * 1024 * 1024) {
         alert('Imaginea este prea mare! Maximum 2MB.');
-        e.target.value = null;
         return;
       }
       const reader = new FileReader();
@@ -41,16 +41,8 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Edge Case: Validare input-uri goale sau doar spații
     if (!name.trim() || !birthDate) {
       alert('Vă rugăm să introduceți un nume și o dată validă.');
-      return;
-    }
-
-    // Edge Case: Verificăm dacă data nu este în viitor
-    if (new Date(birthDate) > new Date()) {
-      alert('Data de naștere nu poate fi în viitor!');
       return;
     }
 
@@ -66,45 +58,84 @@ function App() {
     setName(''); setBirthDate(''); setMessage(''); setImage(null);
   };
 
+  // Logică de filtrare pentru Search Bar
+  const filteredPeople = people.filter((person) =>
+    person.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <main>
       <header className="page-header">
         <h1>🎂 BirthdayReminder</h1>
-        <p>Bine ați venit pe BirthdayReminder! Adaugă-ți zilele de naștere ale persoanelor alese.</p>
+        <p>Bine ați venit pe BirthdayReminder! Adaugă zilele de naștere ale persoanelor dragi.</p>
       </header>
       
       <section className='container'>
-        <form className="form" onSubmit={handleSubmit}>
+        {/* Formular de adăugare */}
+        <form className="form" onSubmit={handleSubmit} aria-label="Formular adăugare zi de naștere">
           <input 
             type="text" 
             placeholder="Numele persoanei..." 
             value={name} 
             onChange={(e) => setName(e.target.value)} 
-            maxLength="30" // Edge Case: Limităm lungimea numelui
+            maxLength="30"
+            aria-required="true"
           />
           <input 
             type="date" 
             value={birthDate} 
             onChange={(e) => setBirthDate(e.target.value)} 
+            aria-label="Data nașterii"
           />
           <textarea 
-            placeholder="Scrie o urare aici..." 
+            placeholder="Scrie o urare..." 
             value={message} 
             onChange={(e) => setMessage(e.target.value)}
             className="message-input"
-            maxLength="200" // Edge Case: Limităm urarea
+            maxLength="200"
           />
-          <label className="file-label-3d">
+          <label className="file-label-3d" tabIndex="0" onKeyDown={(e) => e.key === 'Enter' && e.target.querySelector('input').click()}>
             <span>📸 {image ? 'Imagine selectată' : 'Încarcă o fotografie'}</span>
             <input type="file" accept="image/*" onChange={handleImageChange} hidden />
           </label>
           <button type="submit" className="btn-3d add-btn">Adaugă în listă</button>
         </form>
 
-        <List people={people} removePerson={(id) => setPeople(people.filter(p => p.id !== id))} />
+        <hr className="divider" />
+
+        {/* Search Bar - apare doar dacă avem oameni în listă */}
+        {people.length > 0 && (
+          <div className="search-container">
+            <input 
+              type="text"
+              placeholder="Caută un sărbătorit..."
+              className="search-input"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              aria-label="Caută în lista de zile de naștere"
+            />
+          </div>
+        )}
+
+        {/* Verificare Empty State */}
+        {people.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">✨</div>
+            <p>Momentan nu ai adăugat niciun sărbătorit. Începe prin a completa formularul de mai sus!</p>
+          </div>
+        ) : (
+          <>
+            <List people={filteredPeople} removePerson={(id) => setPeople(people.filter(p => p.id !== id))} />
+            {filteredPeople.length === 0 && searchTerm && (
+              <p className="no-results">Nu am găsit nicio persoană care să corespundă căutării.</p>
+            )}
+          </>
+        )}
         
         {people.length > 0 && (
-          <button className="btn-clear" onClick={() => setPeople([])}>Șterge tot</button>
+          <button className="btn-clear" onClick={() => setPeople([])} aria-label="Șterge toată lista">
+            Șterge tot
+          </button>
         )}
       </section>
     </main>
