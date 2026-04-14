@@ -24,6 +24,9 @@ I built this not just as a technical exercise in React, but as a solution to a p
 * **Accessibility (a11y)**: Designed with semantic HTML, ARIA labels, and full keyboard navigation support (Tab indexing).
 
 ## Project Structure
+## 📂 Project Structure
+
+```text
 birthday-reminder/
 ├── public/
 │   └── index.html          # HTML entry point, SEO tags, and favicon setup
