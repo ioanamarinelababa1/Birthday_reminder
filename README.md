@@ -2,18 +2,14 @@
 
 Leveraging React's component-based architecture and CSS3 animations, this app delivers a premium user experience. It solves the problem of scattered birthday dates by providing a localized, secure, and visually engaging dashboard for all your social milestones.
 
-## Why did I choose React.js?
-
-I chose to use **React** for this project because it offers major advantages in managing dynamic interfaces:
-* **State Management**: React allowed me to manage the list of people in an efficient way using the `useState` hook. The interface updates instantly when a person is added or deleted, without reloading the page.
-* **Componentization**: I divided the app into reusable components (like `List.js`), which makes the code easier to read and maintain.
-* **Side-by-Side Effects**: With the `useEffect` hook, I was able to synchronize the app's data with `localStorage`, ensuring the persistence of information between sessions.
-* **Speed ​​and Performance**: The Virtual DOM in React ensures a smooth user experience, even when working with animations and frequent data manipulation.
-
 ## BirthdayReminder Preview
 
 <img width="1429" height="772" alt="birthday_reminder_preview" src="https://github.com/user-attachments/assets/6ba64bc6-317d-4d96-9a93-2f706a5e22a5" />
 
+## The Story Behind the Project
+This app was born from a mix of **compassion and passion**. In our fast-paced digital lives, it's easy to overlook the milestones of those we care about most. 
+
+I built this not just as a technical exercise in React, but as a solution to a personal challenge: **ensuring that no loved one feels forgotten.** I believe that technology should serve human connection, and this reminder tool is my way of using code to foster more empathy and thoughtfulness in my social circle.
 
 ## Tech Stack
 * **Frontend**: React.js
@@ -35,6 +31,15 @@ setup/
 └── README.md # Project documentation
 
 Currently, the project can be viewed locally by running the npm start command after installing the dependencies.
+
+## Why did I choose React.js?
+
+I chose to use **React** for this project because it offers major advantages in managing dynamic interfaces:
+* **State Management**: React allowed me to manage the list of people in an efficient way using the `useState` hook. The interface updates instantly when a person is added or deleted, without reloading the page.
+* **Componentization**: I divided the app into reusable components (like `List.js`), which makes the code easier to read and maintain.
+* **Side-by-Side Effects**: With the `useEffect` hook, I was able to synchronize the app's data with `localStorage`, ensuring the persistence of information between sessions.
+* **Speed ​​and Performance**: The Virtual DOM in React ensures a smooth user experience, even when working with animations and frequent data manipulation.
+
 
 ## What is BirthdayReminder?
 A modern application built in **React.js** for managing birthdays, with an intuitive design and interactive functionalities.
