@@ -9,7 +9,12 @@ I chose to use **React** for this project because it offers major advantages in 
 * **Componentization**: I divided the app into reusable components (like `List.js`), which makes the code easier to read and maintain.
 * **Side-by-Side Effects**: With the `useEffect` hook, I was able to synchronize the app's data with `localStorage`, ensuring the persistence of information between sessions.
 * **Speed ​​and Performance**: The Virtual DOM in React ensures a smooth user experience, even when working with animations and frequent data manipulation.
-  
+
+## BirthdayReminder Preview
+
+<img width="1429" height="772" alt="birthday_reminder_preview" src="https://github.com/user-attachments/assets/6ba64bc6-317d-4d96-9a93-2f706a5e22a5" />
+
+
 ## Tech Stack
 * **Frontend**: React.js
 * **Styling**: CSS3 (Custom animations, Flexbox, Grid, 3D effects)
