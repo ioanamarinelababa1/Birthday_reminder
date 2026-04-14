@@ -201,3 +201,60 @@ body {
   text-decoration: underline;
   font-size: 0.9rem;
 }
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  margin: 2rem 0;
+}
+
+/* Search Bar Styling */
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #f28ab2;
+  border-radius: 50px; /* Look pastilă */
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 10px rgba(242, 138, 178, 0.3);
+}
+
+/* Empty State Styling */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.no-results {
+  text-align: center;
+  color: #ff4d4d;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Focus vizibil pentru accesibilitate (Tab Navigation) */
+:focus-visible {
+  outline: 3px solid #d86a93;
+  outline-offset: 2px;
+}
