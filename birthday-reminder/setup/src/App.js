@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import List from './List';
+import './indx.css'; // Stilurile globale (formular, header, search bar general)
 
 const getLocalStorage = () => {
   let list = localStorage.getItem('peopleList');
