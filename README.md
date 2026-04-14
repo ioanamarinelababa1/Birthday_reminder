@@ -1,5 +1,7 @@
 # 🎂 BirthdayReminder
 
+---
+
 Leveraging React's component-based architecture and CSS3 animations, this app delivers a premium user experience. It solves the problem of scattered birthday dates by providing a localized, secure, and visually engaging dashboard for all your social milestones.
 
 ## BirthdayReminder Preview
