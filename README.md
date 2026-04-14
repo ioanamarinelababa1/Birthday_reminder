@@ -1,51 +1,53 @@
 # 🎂 BirthdayReminder
 
-O aplicație modernă construită în **React.js** pentru gestionarea zilelor de naștere, cu un design intuitiv și funcționalități interactive.
+Leveraging React's component-based architecture and CSS3 animations, this app delivers a premium user experience. It solves the problem of scattered birthday dates by providing a localized, secure, and visually engaging dashboard for all your social milestones.
 
-## De ce am ales React.js?
+## Why did I choose React.js?
 
-Am ales să folosesc **React** pentru acest proiect deoarece oferă avantaje majore în gestionarea interfețelor dinamice:
-* **State Management**: React mi-a permis să gestionez lista de persoane într-un mod eficient folosind hook-ul `useState`. Interfața se actualizează instantaneu atunci când o persoană este adăugată sau ștearsă, fără a reîncărca pagina.
-* **Componentizare**: Am împărțit aplicația în componente reutilizabile (precum `List.js`), ceea ce face codul mai ușor de citit și de întreținut.
-* **Efecte Side-by-Side**: Cu ajutorul hook-ului `useEffect`, am putut sincroniza datele aplicației cu `localStorage`, asigurând persistența informațiilor între sesiuni.
-* **Viteză și Performanță**: Virtual DOM-ul din React asigură o experiență fluidă utilizatorului, chiar și atunci când lucrăm cu animații și manipulări frecvente de date.
-
+I chose to use **React** for this project because it offers major advantages in managing dynamic interfaces:
+* **State Management**: React allowed me to manage the list of people in an efficient way using the `useState` hook. The interface updates instantly when a person is added or deleted, without reloading the page.
+* **Componentization**: I divided the app into reusable components (like `List.js`), which makes the code easier to read and maintain.
+* **Side-by-Side Effects**: With the `useEffect` hook, I was able to synchronize the app's data with `localStorage`, ensuring the persistence of information between sessions.
+* **Speed ​​and Performance**: The Virtual DOM in React ensures a smooth user experience, even when working with animations and frequent data manipulation.
+  
 ## Tech Stack
 * **Frontend**: React.js
 * **Styling**: CSS3 (Custom animations, Flexbox, Grid, 3D effects)
 * **Storage**: Browser LocalStorage API
 * **Icons/Logo**: SVG & Emoji
 
-## 📂 Structura Proiectului
+## Project Structure
 ```text
 setup/
 ├── public/
-│   └── index.html      # Punctul de intrare HTML și configurare logo/titlu
+│ └── index.html # HTML entry point and logo/title setup
 ├── src/
-│   ├── App.js          # Logica principală, State Management și Formular
-│   ├── List.js         # Componentă pentru randarea listei și calcularea alertelor
-│   ├── indx.css        # Stiluri profesionale, efecte 3D și animații
-│   └── index.js        # Inițializarea aplicației React
-├── package.json        # Dependențele proiectului și scripturi
-└── README.md           # Documentația proiectului
+│ ├── App.js # Main logic, State Management and Form
+│ ├── List.js # Component for rendering the list and calculating alerts
+│ ├── indx.css # Professional styles, 3D effects and animations
+│ └── index.js # React application initialization
+├── package.json # Project dependencies and scripts
+└── README.md # Project documentation
 
+Currently, the project can be viewed locally by running the npm start command after installing the dependencies.
 
-## Ce este BirthdayReminder?
-O aplicație modernă construită în **React.js** pentru gestionarea zilelor de naștere, cu un design intuitiv și funcționalități interactive.
+## What is BirthdayReminder?
+A modern application built in **React.js** for managing birthdays, with an intuitive design and interactive functionalities.
 
-## Caracteristici
-* **Personalizare completă**: Adăugare nume, dată, imagine și mesaje personalizate.
-* **Smart Alerts**: Notificări vizuale pentru zilele de azi și avertismente pentru zilele care urmează mâine.
-* **Efecte Interactive**: Animații tip confetti pentru persoanele sărbătorite.
-* **Persistență date**: Integrare cu `localStorage` pentru a păstra datele după refresh.
-* **Interfață 3D**: Design modern cu butoane tactile și layout responsiv.
-
-## Tehnologii utilizate
+## Features
+* **Full customization**: Add name, date, image and custom messages.
+* **Smart Alerts**: Visual notifications for today and warnings for days coming tomorrow.
+* **Interactive Effects**: Confetti-like animations for the celebrants.
+* **Data Persistence**: Integration with `localStorage` to preserve data after refresh.
+* **3D Interface**: Modern design with touch buttons and responsive layout.
+## Technologies used
 * React.js (Hooks: useState, useEffect)
-* CSS3 (Flexbox, Grid, Animații Custom)
+* CSS3 (Flexbox, Grid, Custom Animations)
 * LocalStorage API
 
-## Instalare
-1. Clonează repository-ul.
-2. Rulează `npm install` pentru a instala dependențele.
-3. Pornește aplicația cu `npm start`.
+## Installation
+1. Clone the repository.
+2. Run `npm install` to install the dependencies.
+3. Start the application with `npm start`.
+
+MIT License - made with dedication.
