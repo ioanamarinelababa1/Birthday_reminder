@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import List from './List';
+import { calculateDaysUntil } from './utils'; // Importul funcției extrase
 import './indx.css'; 
 
 const getLocalStorage = () => {
@@ -23,18 +24,6 @@ function App() {
     const temp = document.createElement('div');
     temp.textContent = text;
     return temp.innerHTML;
-  };
-
-  // Funcție helper pentru sortare (aceeași logică ca în List.js)
-  const calculateDaysUntil = (date) => {
-    const today = new Date();
-    const birthday = new Date(date);
-    birthday.setFullYear(today.getFullYear());
-    if (today > birthday) {
-      birthday.setFullYear(today.getFullYear() + 1);
-    }
-    const diff = birthday - today;
-    return Math.ceil(diff / (1000 * 60 * 60 * 24));
   };
 
   const handleImageChange = (e) => {
@@ -78,7 +67,7 @@ function App() {
     setName(''); setBirthDate(''); setMessage(''); setImage(null);
   };
 
-  // --- MODIFICARE: Filtrare + Sortare automată ---
+  // Logica "Senior": Filtrare + Sortare automată folosind utilitarul importat
   const filteredPeople = people
     .filter((person) => person.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .sort((a, b) => calculateDaysUntil(a.birthDate) - calculateDaysUntil(b.birthDate));
@@ -87,15 +76,31 @@ function App() {
     <main>
       <header className="page-header">
         <h1>🎂 BirthdayReminder</h1>
-        <p>Bine ați venit pe BirthdayReminder! Adaugă zilele de naștere ale persoanelor dragi.</p>
+        <p>Gestionează zilele de naștere și nu uita niciodată să transmiți o urare!</p>
       </header>
       
       <section className='container'>
-        <form className="form" onSubmit={handleSubmit} aria-label="Formular adăugare zi de naștere">
-          <input type="text" placeholder="Numele persoanei..." value={name} onChange={(e) => setName(e.target.value)} maxLength="30" aria-required="true" />
-          <input type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} aria-label="Data nașterii" />
-          <textarea placeholder="Scrie o urare..." value={message} onChange={(e) => setMessage(e.target.value)} className="message-input" maxLength="200" />
-          <label className="file-label-3d" tabIndex="0" onKeyDown={(e) => e.key === 'Enter' && e.target.querySelector('input').click()}>
+        <form className="form" onSubmit={handleSubmit} aria-label="Formular adăugare">
+          <input 
+            type="text" 
+            placeholder="Numele persoanei..." 
+            value={name} 
+            onChange={(e) => setName(e.target.value)} 
+            maxLength="30" 
+          />
+          <input 
+            type="date" 
+            value={birthDate} 
+            onChange={(e) => setBirthDate(e.target.value)} 
+          />
+          <textarea 
+            placeholder="Scrie o urare..." 
+            value={message} 
+            onChange={(e) => setMessage(e.target.value)}
+            className="message-input"
+            maxLength="200"
+          />
+          <label className="file-label-3d" tabIndex="0">
             <span>📸 {image ? 'Imagine selectată' : 'Încarcă o fotografie'}</span>
             <input type="file" accept="image/*" onChange={handleImageChange} hidden />
           </label>
@@ -106,26 +111,37 @@ function App() {
 
         {people.length > 0 && (
           <div className="search-container">
-            <input type="text" placeholder="Caută un sărbătorit..." className="search-input" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} aria-label="Caută în lista de zile de naștere" />
+            <input 
+              type="text" 
+              placeholder="Caută un sărbătorit..." 
+              className="search-input" 
+              value={searchTerm} 
+              onChange={(e) => setSearchTerm(e.target.value)} 
+            />
           </div>
         )}
 
         {people.length === 0 ? (
           <div className="empty-state">
             <div className="empty-icon">✨</div>
-            <p>Momentan nu ai adăugat niciun sărbătorit.</p>
+            <p>Lista este goală. Adaugă pe cineva!</p>
           </div>
         ) : (
           <>
-            <List people={filteredPeople} removePerson={(id) => setPeople(people.filter(p => p.id !== id))} />
+            <List 
+              people={filteredPeople} 
+              removePerson={(id) => setPeople(people.filter(p => p.id !== id))} 
+            />
             {filteredPeople.length === 0 && searchTerm && (
-              <p className="no-results">Nu am găsit nicio persoană care să corespundă căutării.</p>
+              <p className="no-results">Niciun rezultat pentru "{searchTerm}".</p>
             )}
           </>
         )}
         
         {people.length > 0 && (
-          <button className="btn-clear" onClick={() => setPeople([])} aria-label="Șterge toată lista">Șterge tot</button>
+          <button className="btn-clear" onClick={() => setPeople([])}>
+            Șterge tot
+          </button>
         )}
       </section>
     </main>
