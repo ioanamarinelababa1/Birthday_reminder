@@ -1,5 +1,5 @@
 # 🎂 BirthdayReminder
-
+More than just a tool—a bridge for human connection.
 ---
 
 Leveraging React's component-based architecture and CSS3 animations, this app delivers a premium user experience. It solves the problem of scattered birthday dates by providing a localized, secure, and visually engaging dashboard for all your social milestones.
@@ -14,19 +14,15 @@ I built this tool to bridge that gap—combining my passion for coding with comp
 <img width="1228" height="734" alt="preview_1" src="https://github.com/user-attachments/assets/097b4868-af8d-422d-be86-8fd03b175eba" /> 
 <img width="1227" height="725" alt="preview_2" src="https://github.com/user-attachments/assets/fb90b75c-0590-4824-b299-beb500cb9fb7" />
 
+## Why did I choose React.js?
 
-I built this not just as a technical exercise in React, but as a solution to a personal challenge: **ensuring that no loved one feels forgotten.** I believe that technology should serve human connection, and this reminder tool is my way of using code to foster more empathy and thoughtfulness in my social circle.
-
-## Tech Stack
-* **Frontend**: React.js
-* **Styling**: CSS3 (Custom animations, Flexbox, Grid, 3D effects)
-* **Storage**: Browser LocalStorage API
-* **Icons/Logo**: SVG & Emoji
-* **Type Checking**: Integrated `Prop-Types` for robust data validation and predictable component communication.
-* **Accessibility (a11y)**: Designed with semantic HTML, ARIA labels, and full keyboard navigation support (Tab indexing).
+I chose to use **React** for this project because it offers major advantages in managing dynamic interfaces:
+* **State Management**: React allowed me to manage the list of people in an efficient way using the `useState` hook. The interface updates instantly when a person is added or deleted, without reloading the page.
+* **Componentization**: I divided the app into reusable components (like `List.js`), which makes the code easier to read and maintain.
+* **Side-by-Side Effects**: With the `useEffect` hook, I was able to synchronize the app's data with `localStorage`, ensuring the persistence of information between sessions.
+* **Speed ​​and Performance**: The Virtual DOM in React ensures a smooth user experience, even when working with animations and frequent data manipulation.
 
 ## Technical Excellence & Architecture
-
 To demonstrate my commitment to writing professional, scalable, and predictable code, I implemented the following advanced React patterns:
 
 ### 1. Data Integrity with Prop-Types
@@ -41,12 +37,20 @@ I migrated component-specific styles from a global `indx.css` to `List.module.cs
 Beyond simple CRUD operations, I developed a custom date-utility logic to calculate the remaining days until a birthday.
 - **Why?** This solves the core user problem: **forgetting dates**. It combines complex JavaScript `Date` object manipulation with conditional UI rendering (the "Urgent" pulse effect).
 
+### 4. DRY Principle & Logic Centralization (New)
+I performed a major refactoring by extracting core business logic into a dedicated utils.js file. **Why?** It centralizes the date calculation logic used for both Smart Sorting and UI Rendering. This eliminates code duplication, making the app easier to maintain and scale.
+
+### 5. Smart Sorting & UX Priority (New)
+The app now features Automatic Chronological Sorting. **Why?** Instead of a random list, the app intelligently prioritizes contacts whose birthdays are closest, ensuring the most relevant information is always at the top.
+
 ## Features
 * **Full customization**: Add name, date, image and custom messages.
 * **Smart Alerts**: Visual notifications for today and warnings for days coming tomorrow.
 * **Interactive Effects**: Confetti-like animations for the celebrants.
 * **Data Persistence**: Integration with `localStorage` to preserve data after refresh.
 * **3D Interface**: Modern design with touch buttons and responsive layout.
+* **Search & Filter**: Optimized array methods (.filter, .includes) for instant searching.
+* **Image Handling**: Support for custom profile uploads with size validation (max 2MB).
 
 ## Advenced Features
 - **Real-time Search & Filtering**: Instantly find specific contacts using optimized JavaScript array methods (`.filter`, `.includes`).
@@ -56,33 +60,19 @@ Beyond simple CRUD operations, I developed a custom date-utility logic to calcul
 
 ## Project Structure
 
-```text
-birthday-reminder/
+```birthday-reminder/
 ├── public/
-│   └── index.html          # HTML entry point, SEO tags, and favicon setup
+│   └── index.html          # HTML entry point & SEO setup
 ├── src/
-│   ├── App.js              # Main logic: Filtering, Sanitization & LocalStorage
-│   ├── List.js             # UI Component: Rendering logic & Prop-Types validation
-│   ├── List.module.css     # Encapsulated styles (CSS Modules) for the list & cards
-│   ├── indx.css            # Global styles: Layout, Variables, Form & Search Bar
-│   └── index.js            # React application entry point
-├── package.json            # Project dependencies (React, Prop-Types, etc.)
-└── README.md               # Documentation: "The Why", Tech Stack & Roadmap
+│   ├── App.js              # State Management & Sorting Logic
+│   ├── List.js             # UI Component & Render Logic
+│   ├── List.module.css     # Encapsulated animations & styles
+│   ├── utils.js            # Shared business logic (Date utilities)
+│   ├── indx.css            # Global theme & 3D variables
+│   └── index.js            # React initialization
+├── package.json            # Dependencies
+└── README.md               # Project Documentation
 ```
-
-Currently, the project can be viewed locally by running the npm start command after installing the dependencies.
-
-## Why did I choose React.js?
-
-I chose to use **React** for this project because it offers major advantages in managing dynamic interfaces:
-* **State Management**: React allowed me to manage the list of people in an efficient way using the `useState` hook. The interface updates instantly when a person is added or deleted, without reloading the page.
-* **Componentization**: I divided the app into reusable components (like `List.js`), which makes the code easier to read and maintain.
-* **Side-by-Side Effects**: With the `useEffect` hook, I was able to synchronize the app's data with `localStorage`, ensuring the persistence of information between sessions.
-* **Speed ​​and Performance**: The Virtual DOM in React ensures a smooth user experience, even when working with animations and frequent data manipulation.
-
-
-## What is BirthdayReminder?
-A modern application built in **React.js** for managing birthdays, with an intuitive design and interactive functionalities.
 
 ## Security & Robustness
 * **Input Sanitization**: All user inputs are sanitized to prevent XSS (Cross-Site Scripting) attacks, ensuring that malicious scripts cannot be executed within the app.
@@ -93,6 +83,14 @@ A modern application built in **React.js** for managing birthdays, with an intui
 * **Edge Case Handling**: 
     * File size validation for image uploads (max 2MB) to prevent memory issues.
     * Trimming of whitespace to avoid accidental empty entries.
+
+## Tech Stack
+* **Frontend**: React.js
+* **Styling**: CSS3 (Custom animations, Flexbox, Grid, 3D effects)
+* **Storage**: Browser LocalStorage API
+* **Icons/Logo**: SVG & Emoji
+* **Type Checking**: Integrated `Prop-Types` for robust data validation and predictable component communication.
+* **Accessibility (a11y)**: Designed with semantic HTML, ARIA labels, and full keyboard navigation support (Tab indexing).
 
 ## Installation
 1. Clone the repository.
@@ -105,4 +103,4 @@ A modern application built in **React.js** for managing birthdays, with an intui
 - [ ] **Dark Mode**: A high-contrast theme for better late-night accessibility.
 - [ ] **Export/Import**: Backup data in JSON format.
 
-MIT License - made with dedication.
+MIT License - Made with dedication to foster better human connections.
