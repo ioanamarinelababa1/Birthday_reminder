@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import List from './List';
-import { calculateDaysUntil } from './utils'; // Importul funcției extrase
+import { calculateDaysUntil } from './utils';
 import './indx.css'; 
 
 const getLocalStorage = () => {
@@ -9,6 +10,7 @@ const getLocalStorage = () => {
 };
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [people, setPeople] = useState(getLocalStorage());
   const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState('');
@@ -41,17 +43,8 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const selectedDate = new Date(birthDate);
-    const currentYear = new Date().getFullYear();
-    const selectedYear = selectedDate.getFullYear();
-
     if (!name.trim() || !birthDate) {
-      alert('Vă rugăm să introduceți un nume și o dată validă.');
-      return;
-    }
-
-    if (selectedYear > currentYear || selectedYear < currentYear - 120) {
-      alert(`Te rugăm să introduci un an valid (între ${currentYear - 120} și ${currentYear}).`);
+      alert(i18n.language === 'ro' ? 'Vă rugăm să introduceți un nume și o dată.' : 'Please enter a name and date.');
       return;
     }
 
@@ -67,80 +60,66 @@ function App() {
     setName(''); setBirthDate(''); setMessage(''); setImage(null);
   };
 
-  // Logica "Senior": Filtrare + Sortare automată folosind utilitarul importat
   const filteredPeople = people
     .filter((person) => person.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .sort((a, b) => calculateDaysUntil(a.birthDate) - calculateDaysUntil(b.birthDate));
-
+  
   return (
     <main>
       <header className="page-header">
-        <h1>🎂 BirthdayReminder</h1>
-        <p>Gestionează zilele de naștere și nu uita niciodată să transmiți o urare!</p>
+        <h1>🎂 {t('title')}</h1>
+        <p className="subtitle">{i18n.language === 'ro' ? 'Bine ați venit pe BirthdayReminder!' : 'Welcome to BirthdayReminder!'}</p>
+        <div className="lang-btns">
+           <button onClick={() => i18n.changeLanguage('ro')}>RO</button>
+           <button onClick={() => i18n.changeLanguage('en')}>EN</button>
+        </div>
       </header>
       
       <section className='container'>
-        <form className="form" onSubmit={handleSubmit} aria-label="Formular adăugare">
+        <form className="form" onSubmit={handleSubmit}>
           <input 
             type="text" 
-            placeholder="Numele persoanei..." 
+            placeholder={t('placeholder_name')} 
             value={name} 
             onChange={(e) => setName(e.target.value)} 
-            maxLength="30" 
           />
-          <input 
-            type="date" 
-            value={birthDate} 
-            onChange={(e) => setBirthDate(e.target.value)} 
-          />
+          <input type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
+          
           <textarea 
-            placeholder="Scrie o urare..." 
-            value={message} 
-            onChange={(e) => setMessage(e.target.value)}
             className="message-input"
-            maxLength="200"
+            placeholder={i18n.language === 'ro' ? "Scrie o urare..." : "Write a wish..."}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
-          <label className="file-label-3d" tabIndex="0">
-            <span>📸 {image ? 'Imagine selectată' : 'Încarcă o fotografie'}</span>
-            <input type="file" accept="image/*" onChange={handleImageChange} hidden />
+
+          <label className="file-label-3d">
+            <input type="file" accept="image/*" onChange={handleImageChange} style={{display: 'none'}} />
+            📸 {image ? (i18n.language === 'ro' ? 'Imagine selectată' : 'Image selected') : (i18n.language === 'ro' ? 'Încarcă o fotografie' : 'Upload a photo')}
           </label>
-          <button type="submit" className="btn-3d add-btn">Adaugă în listă</button>
+
+          <button type="submit" className="btn-3d add-btn">
+            {t('add_btn')}
+          </button>
         </form>
 
-        <hr className="divider" />
+        <div className="search-container">
+          <input 
+            type="text" 
+            className="search-input"
+            placeholder={i18n.language === 'ro' ? "Caută un sărbătorit..." : "Search for someone..."}
+            value={searchTerm} 
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
 
-        {people.length > 0 && (
-          <div className="search-container">
-            <input 
-              type="text" 
-              placeholder="Caută un sărbătorit..." 
-              className="search-input" 
-              value={searchTerm} 
-              onChange={(e) => setSearchTerm(e.target.value)} 
-            />
-          </div>
-        )}
-
-        {people.length === 0 ? (
-          <div className="empty-state">
-            <div className="empty-icon">✨</div>
-            <p>Lista este goală. Adaugă pe cineva!</p>
-          </div>
-        ) : (
-          <>
-            <List 
-              people={filteredPeople} 
-              removePerson={(id) => setPeople(people.filter(p => p.id !== id))} 
-            />
-            {filteredPeople.length === 0 && searchTerm && (
-              <p className="no-results">Niciun rezultat pentru "{searchTerm}".</p>
-            )}
-          </>
-        )}
+        <List 
+          people={filteredPeople} 
+          removePerson={(id) => setPeople(people.filter(p => p.id !== id))} 
+        />
         
         {people.length > 0 && (
           <button className="btn-clear" onClick={() => setPeople([])}>
-            Șterge tot
+            {i18n.language === 'ro' ? 'Șterge tot' : 'Clear all'}
           </button>
         )}
       </section>
