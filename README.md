@@ -43,7 +43,12 @@ I performed a major refactoring by extracting core business logic into a dedicat
 ### 5. Smart Sorting & UX Priority (New)
 The app now features Automatic Chronological Sorting. **Why?** Instead of a random list, the app intelligently prioritizes contacts whose birthdays are closest, ensuring the most relevant information is always at the top.
 
+### 6. Internationalization (i18n) with i18next
+I implemented a robust translation system supporting English and Romanian.
+- **Why?** Making an app accessible to a global audience is a key requirement for modern software. It demonstrates my ability to manage complex state transitions where all UI strings must update dynamically based on the user's language choice without page refreshes.
+
 ## Features
+* **Multilingual Support**: Seamless toggle between Romanian and English using `i18next`.
 * **Full customization**: Add name, date, image and custom messages.
 * **Smart Alerts**: Visual notifications for today and warnings for days coming tomorrow.
 * **Interactive Effects**: Confetti-like animations for the celebrants.
@@ -91,6 +96,7 @@ The app now features Automatic Chronological Sorting. **Why?** Instead of a rand
 * **Icons/Logo**: SVG & Emoji
 * **Type Checking**: Integrated `Prop-Types` for robust data validation and predictable component communication.
 * **Accessibility (a11y)**: Designed with semantic HTML, ARIA labels, and full keyboard navigation support (Tab indexing).
+* **Localization**: i18next & react-i18next
 
 ## Installation
 1. Clone the repository.
