@@ -65,18 +65,24 @@ I implemented a robust translation system supporting English and Romanian.
 
 ## Project Structure
 
-```birthday-reminder/
-├── public/
-│   └── index.html          # HTML entry point & SEO setup
-├── src/
-│   ├── App.js              # State Management & Sorting Logic
-│   ├── List.js             # UI Component & Render Logic
-│   ├── List.module.css     # Encapsulated animations & styles
-│   ├── utils.js            # Shared business logic (Date utilities)
-│   ├── indx.css            # Global theme & 3D variables
-│   └── index.js            # React initialization
-├── package.json            # Dependencies
-└── README.md               # Project Documentation
+```
+birthday-reminder/
+├── setup/                  # Folderul principal de lucru (Root-ul aplicației)
+│   ├── public/
+│   │   └── index.html      # Entry point HTML & SEO setup
+│   ├── src/
+│   │   ├── App.js          # State Management, Search & Sorting Logic
+│   │   ├── List.js         # Componentă UI pentru randarea listei
+│   │   ├── List.module.css # Stiluri încapsulate (pentru scalabilitate)
+│   │   ├── utils.js        # Logica partajată (Calculul zilelor rămase)
+│   │   ├── i18n.js         # Configurare i18next (Traduceri RO/EN)
+│   │   ├── indx.css        # Tema globală, culori & variabile 3D
+│   │   ├── index.js        # Inițializare React & i18n import
+│   │   └── utils.test.js   # Unit Tests pentru logica de calcul
+│   ├── package.json        # Dependențe (React, i18next, Testing Library)
+│   └── .gitignore          # Fișiere ignorate de Git (node_modules, etc.)
+├── README.md               # Documentația proiectului
+└── .git/                   # Istoricul versiunilor
 ```
 
 ## Security & Robustness
