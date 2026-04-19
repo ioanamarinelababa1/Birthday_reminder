@@ -11,8 +11,10 @@ I built this tool to bridge that gap—combining my passion for coding with comp
 
 ## BirthdayReminder Preview
 
-<img width="1228" height="734" alt="preview_1" src="https://github.com/user-attachments/assets/097b4868-af8d-422d-be86-8fd03b175eba" /> 
-<img width="1227" height="725" alt="preview_2" src="https://github.com/user-attachments/assets/fb90b75c-0590-4824-b299-beb500cb9fb7" />
+<img width="1209" height="733" alt="Captură de ecran din 2026-04-19 la 15 03 18" src="https://github.com/user-attachments/assets/4902652b-85d5-49c3-90a2-af6f93f576cb" />
+
+<img width="1201" height="734" alt="Captură de ecran din 2026-04-19 la 15 04 24" src="https://github.com/user-attachments/assets/e80c6527-b8f5-4e04-adc7-685e9d6b0f70" />
+
 
 ## Why did I choose React.js?
 
